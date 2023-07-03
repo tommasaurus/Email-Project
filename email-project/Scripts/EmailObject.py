@@ -5,6 +5,8 @@ from email.utils import formataddr, formatdate
 from email.mime.base import MIMEBase
 from email import encoders
 from pathlib import Path
+import os
+from os import path
 
 class Emailer:
     # Tester information:
@@ -144,9 +146,10 @@ def add_path_to_message(message, path):
     return False
 
 def main():
-        emailObject = Emailer("Tommy Qu", "t79206446@outlook.com","tHi5isT3ster3M4!L")
-        emailObject.send_email("Yaj Mehta","yajmehta@gmail.com","Test for script","Hello","/Users/tommyqu/Desktop/ExamProcedures-Fall2022.docx")
-        print("hello world")
+        current_directory = os.getcwd()
+        relative_path = 'email-project/schedule.db'
+        absolute_path = path.join(current_directory, relative_path)
+        print(absolute_path)
 
 if __name__ == "__main__":
     main()
